@@ -4,7 +4,9 @@ from datetime import datetime
 import re
 
 def home(request):
-    return HttpResponse("Hola mundo!")
+    a = []
+    aStr = a.__str__()
+    return HttpResponse(aStr)
 
 def hola_there(request, name):
     return render(

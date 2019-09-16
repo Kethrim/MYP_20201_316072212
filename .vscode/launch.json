@@ -15,6 +15,13 @@
         "--noreload"
       ],
       "django": true
+    },
+    {
+      "name": "Python: Archivo Actual",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
     }
   ]
 }
