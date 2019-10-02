@@ -1,0 +1,5 @@
+data/
+ambiente/
+X.pickle
+Y.pickle
+__pycache__/

@@ -6,14 +6,18 @@ from matplotlib import pyplot as plt
 import random
 import pickle
 class Preprocess(object):
-
     def __init__(self, *args, **kwargs):
-        self.DATADIR = "data" #carpeta de carpetas
-        self.CATEGORIES = ["men", "women"] #carpetas con imágenes
+        self.DATADIR = "data" #carpeta de imagenes
+        self.CATEGORIES = ["cuyos",'otros'] #carpetas con imágenes
         self.IMG_SIZE = 50 #tamaño de la imagen
         self.training_data = []
         self.labels = [] #arreglo
         self.features = []
+
+    def get_image_array(self, path, img):
+        img_array = cv2.imread(os.path.join(path, img),cv2.IMREAD_GRAYSCALE)
+        new_array = cv2.resize(img_array,(self.IMG_SIZE, self.IMG_SIZE))
+        return new_array
 
     def load_training (self):
         for category in self.CATEGORIES:
@@ -45,5 +49,8 @@ class Preprocess(object):
         pickle_out.close()
 
 pr = Preprocess()
-pr.load_training_data()
-# pr.split_and_prepare()
+pr.load_training()
+pr.split_and_prepare()
+pr.write_out()
+
+#%%
