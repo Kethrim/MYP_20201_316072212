@@ -23,7 +23,7 @@ import pickle
 
  #Clase que obtiene imagenes entre un directorio y las separa
 class Preprocess:
-    def _init_(self):
+    def __init__(self):
         #tamaño por defecto de la imagen
         self.IMG_SIZE = 50
         #Arreglo que almacenara todas las imagenes de cada carpeta
@@ -51,6 +51,7 @@ class Preprocess:
      #Obtiene las imagenes de cada uno de los subdirectorios
     def load_training_data(self):
         for category in self.subdirectories:
+            print("Estoy procesando imagenes de ${category")
             path = category
             class_num = self.subdirectories.index(category)
             for img in os.listdir(path):
@@ -84,3 +85,11 @@ class Preprocess:
 	    pickle_out = open("Y.pickle","wb")
 	    pickle.dump(self.labels,pickle_out)
 	    pickle_out.close()
+
+
+
+
+
+
+
+#%%
