@@ -28,5 +28,5 @@ class GuineaPigClassifier(object):
       plt.show()
     return predictions
 g = GuineaPigClassifier()
-g.is_guineaPig('data/otros/no3.jpg',True)
+g.is_guineaPig('data/otros/NO3.jpg',True)
 #%%
