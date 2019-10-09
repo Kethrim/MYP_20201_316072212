@@ -1,0 +1,11 @@
+
+Data/
+
+# Ignoramos el ambiente
+enviroment/
+
+# Ignoramos los archivos que contienen las etiquetas y el arreglo de imagenes
+X.pickle
+Y.pickle
+
+__pycache__/
