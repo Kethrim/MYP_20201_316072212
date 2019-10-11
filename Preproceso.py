@@ -19,8 +19,8 @@ class Preproceso(object):
     #Procesa las imágenes para que la red pueda leerlas.
     def load_training (self):
         for category in self.CATEGORIES:
-            path = os.path.join(self.DATADIR, category);
-            class_num = self.CATEGORIES.index(category);
+            path = os.path.join(self.DATADIR, category)
+            class_num = self.CATEGORIES.index(category)
             for img in os.listdir(path):
                 try:
                     img_array = cv2.imread(os.path.join(path, img),cv2.IMREAD_GRAYSCALE)
