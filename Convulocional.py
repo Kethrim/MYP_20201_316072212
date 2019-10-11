@@ -22,7 +22,7 @@ class Convulocional(object):
         else: #Creamos el modelo.
             # Declaramos las capas de la red.
             self.modelo = keras.Sequential([
-            keras.layers.Flatten(input_shape=(50, 50,1)), #Dimensiones de la imagen declaradas en preproceso.
+            keras.layers.Flatten(input_shape=(50, 50)), #Dimensiones de la imagen declaradas en preproceso.
             keras.layers.Dense(128, activation=tf.nn.relu), #128 nodos
             keras.layers.Dense(2, activation=tf.nn.softmax) #2 etiquetas
             ])
