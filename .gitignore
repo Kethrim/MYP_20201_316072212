@@ -1,5 +1,4 @@
 data/
-
 # Ignoramos el ambiente
 ambiente/
 
@@ -7,4 +6,9 @@ ambiente/
 X.pickle
 Y.pickle
 
-__pycache__/
+#Carpeta de Ket de imágenes
+datos/
+#Archivo de prueba para la red.
+prueba.py 
+#Modelo
+model.h5
