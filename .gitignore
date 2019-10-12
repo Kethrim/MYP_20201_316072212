@@ -6,12 +6,12 @@ ambiente/
 #Carpeta de pruebas
 pruebas/
 # Ignoramos los archivos que contienen las etiquetas y el arreglo de imagenes
-X.pickle
-Y.pickle
+X_Jirafa.pickle
+Y_Jirafa.pickle
 
 #Carpeta de Ket de imágenes
 datos/
 #Archivo de prueba para la red.
 prueba.py 
 #Modelo
-model.h5
+modelJirafa.h5
