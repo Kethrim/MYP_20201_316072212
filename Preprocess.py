@@ -1,23 +1,23 @@
 import os
-import cv2
 import numpy as np
+import cv2
 from matplotlib import pyplot as plt
 import random
 import pickle
 class Preprocess(object):
 
     def __init__(self, *args, **kwargs):
-        self.DATADIR = "data" #carpeta de carpetas
-        self.CATEGORIES = ["men", "women"] #carpetas con imágenes
+        self.DATADIR = "Data" #carpeta de carpetas
+        self.CATEGORIES = ["Avestruz", "Otros"] #carpetas con imágenes
         self.IMG_SIZE = 50 #tamaño de la imagen
         self.training_data = []
-        self.labels = [] #arreglo
+        self.labels = []
         self.features = []
 
     def load_training (self):
         for category in self.CATEGORIES:
-            path = os.path.join(self.DATADIR, category);
-            class_num = self.CATEGORIES.index(category);
+            path = os.path.join(self.DATADIR, category)
+            class_num = self.CATEGORIES.index(category)
             for img in os.listdir(path):
                 try:
                     img_array = cv2.imread(os.path.join(path, img),cv2.IMREAD_GRAYSCALE)
@@ -33,6 +33,7 @@ class Preprocess(object):
             self.labels.append(label)
         self.features = np.array(self.features).reshape(-1,self.IMG_SIZE, self.IMG_SIZE,1)
         self.features = self.features/255.0
+        self.labels = np.array(self.labels)
 
     def write_out(self):
         pickle_out = open("X.pickle", "wb")
@@ -42,7 +43,3 @@ class Preprocess(object):
         pickle_out = open("Y.pickle", "wb")
         pickle.dump(self.labels, pickle_out)
         pickle_out.close()
-
-pr = Preprocess()
-pr.load_training_data()
-# pr.split_and_prepare()
