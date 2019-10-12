@@ -37,6 +37,6 @@ class Convulocional(object):
         self.modelo.fit(self.IMAGENES, self.ETIQUETAS, epochs=100) #ejecuta el entrenamiento 100 veces.
         self.modelo.save('model.h5') #guarda el modelo en "model.h5"
 
-c = Convulocional()
+c = Convulocional(True)
 c.entrenaYGuarda()
 #%%

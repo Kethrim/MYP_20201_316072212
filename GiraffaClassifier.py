@@ -38,11 +38,11 @@ class GiraffaClassifier(object):
 
 
 g = GiraffaClassifier()
-#g.esJirafa("datos/jirafasss/_92895352_gettyimages-493199410.jpg")
-# g.esJirafa('datos/pruebas/perrito.jpg')
-#g.esJirafa('datos/pruebas/jirafa.jpg')
-# g.esJirafa('datos/pruebas/vaca.jpg')
-# g.esJirafa('datos/pruebas/avestruz.jpg')
-# g.esJirafa('datos/pruebas/Conejo.jpg')
-# g.esJirafa('datos/pruebas/bisonte.jpg')
+#g.esJirafa("")
+g.esJirafa('pruebas/perrito.jpg')
+g.esJirafa('pruebas/jirafa.jpg')
+g.esJirafa('pruebas/vaca.jpg')
+g.esJirafa('pruebas/avestruz.jpg')
+g.esJirafa('pruebas/Conejo.jpg')
+g.esJirafa('pruebas/bisonte.jpg')
 #%%
