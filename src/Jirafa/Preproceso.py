@@ -6,8 +6,10 @@ from matplotlib import pyplot as plt
 import random
 import pickle
 
-#Creamos una clase que preprocesa las imágenes para usar el tensor.
 class Preproceso(object):
+    '''
+    Preprocesa las imágenes que poder usar tensorFlow.
+    '''
     def __init__(self):
         self.DATADIR = "datos" #carpeta de imagenes
         self.CATEGORIES = ["Jirafas", "Otros"] #carpetas con imágenes
@@ -16,8 +18,10 @@ class Preproceso(object):
         self.labels = [] #arreglo de etiquetas
         self.features = []
 
-    #Otiene las imagenes y las procesa para que la red pueda leerlas.
     def load_training (self):
+        '''
+        Obtiene las imágenes de las subcarpetas y las procesa para que la red pueda usarlas.
+        '''
         for category in self.CATEGORIES:
             path = os.path.join(self.DATADIR, category)
             class_num = self.CATEGORIES.index(category)
@@ -31,17 +35,21 @@ class Preproceso(object):
                 except Exception as e:
                     pass
 
-    #Divide en etiquetas e imágenes.
     def split_and_prepare(self):
+        '''
+        Divide en etiquetas e imágenes.
+        '''
         random.shuffle(self.training_data) #desordena las tuplas
         for features, label in self.training_data:
             self.features.append(features)                      
             self.labels.append(label)
         self.features = np.array(self.features).reshape(-1,self.IMG_SIZE, self.IMG_SIZE,1)
         self.features = self.features/255.0 #Normaliza el vector
-
-    #Serialización de las imágenes y las etiquetas en un archivo de bytes.
+   
     def write_out(self):
+        '''
+        Serialización de las imágenes y etiquetas en un archivo de bytes.
+        '''
         pickle_out = open("X_Jirafa.pickle", "wb")
         pickle.dump(self.features, pickle_out)
         pickle_out.close()
