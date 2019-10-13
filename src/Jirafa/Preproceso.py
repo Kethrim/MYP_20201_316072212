@@ -9,7 +9,7 @@ import pickle
 #Creamos una clase que preprocesa las imágenes para usar el tensor.
 class Preproceso(object):
     def __init__(self):
-        self.DATADIR = "/home/ket/Escritorio/PythonWebAI/datos" #carpeta de imagenes
+        self.DATADIR = "datos" #carpeta de imagenes
         self.CATEGORIES = ["Jirafas", "Otros"] #carpetas con imágenes
         self.IMG_SIZE = 50 #tamaño de la imagen
         self.training_data = []
@@ -35,12 +35,7 @@ class Preproceso(object):
     def split_and_prepare(self):
         random.shuffle(self.training_data) #desordena las tuplas
         for features, label in self.training_data:
-            self.features.append(features)             
-            # plt.figure()
-            # plt.title(label)
-            # plt.imshow(features)
-            # plt.grid(False)
-            # plt.show()           
+            self.features.append(features)                      
             self.labels.append(label)
         self.features = np.array(self.features).reshape(-1,self.IMG_SIZE, self.IMG_SIZE,1)
         self.features = self.features/255.0 #Normaliza el vector
