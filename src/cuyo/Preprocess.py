@@ -14,11 +14,6 @@ class Preprocess(object):
         self.labels = [] #arreglo
         self.features = []
 
-    def get_image_array(self, path, img):
-        img_array = cv2.imread(os.path.join(path, img),cv2.IMREAD_GRAYSCALE)
-        new_array = cv2.resize(img_array,(self.IMG_SIZE, self.IMG_SIZE))
-        return new_array
-
     def load_training (self):
         for category in self.CATEGORIES:
             path = os.path.join(self.DATADIR, category);
@@ -36,7 +31,7 @@ class Preprocess(object):
         for features, label in self.training_data:
             self.features.append(features)
             self.labels.append(label)
-        self.features = np.array(self.features).reshape(-1,self.IMG_SIZE, self.IMG_SIZE,1)
+        self.features = np.array(self.features).reshape(-1,self.IMG_SIZE, self.IMG_SIZE)
         self.features = self.features/255.0
 
     def write_out(self):

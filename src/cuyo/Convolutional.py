@@ -1,11 +1,7 @@
 #%%
 from __future__ import absolute_import, division, print_function, unicode_literals
-
 import tensorflow as tf
 from tensorflow import keras
-
-
-# Helper libraries
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
@@ -13,14 +9,14 @@ import pickle
 class Convolutional(object):
     def __init__(self, newModel = False):
         self.IMAGENES = pickle.load(open("X.pickle", "rb"))
-        self.ETIQUETAS = pickle.load(open("Y.pickle", "rb"))
+        self.ETIQUETAS = np.array(pickle.load(open("Y.pickle", "rb")))
 
         if newModel:
-            self.model = keras.models.load_model('model.h5')
+            self.model = keras.models.load_model('modelos/guinea_pig_model.h5')
         else:
             # Declaramos las capas de la red
             self.model = keras.Sequential([
-            keras.layers.Flatten(input_shape=(50, 50,1)),
+            keras.layers.Flatten(input_shape=(50, 50)),
             keras.layers.Dense(128, activation=tf.nn.relu),
             keras.layers.Dense(2, activation=tf.nn.softmax)
             ])
@@ -34,7 +30,7 @@ class Convolutional(object):
         self.model.fit(self.IMAGENES, self.ETIQUETAS, epochs=100)
 
     def guarda_modelo(self):
-        self.model.save('model.h5')
+        self.model.save('modelos/guinea_pig_model.h5')
 
 c = Convolutional(True)
 c.entrena()
