@@ -10,5 +10,4 @@ X_Jirafa.pickle
 Y_Jirafa.pickle
 #Carpeta de imágenes
 datos/
-#Modelo
-modelJirafa.h5
+GiraffaClassifier.py
