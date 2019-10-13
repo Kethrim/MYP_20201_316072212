@@ -9,7 +9,7 @@ import pickle
 #Creamos una clase que preprocesa las imágenes para usar el tensor.
 class Preproceso(object):
     def __init__(self):
-        self.DATADIR = "datos" #carpeta de imagenes
+        self.DATADIR = "/home/ket/Escritorio/PythonWebAI/datos" #carpeta de imagenes
         self.CATEGORIES = ["Jirafas", "Otros"] #carpetas con imágenes
         self.IMG_SIZE = 50 #tamaño de la imagen
         self.training_data = []

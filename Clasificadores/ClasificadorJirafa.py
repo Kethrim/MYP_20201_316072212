@@ -3,13 +3,12 @@ from matplotlib import pyplot as plt
 from tensorflow import keras
 import cv2
 import numpy as np
-#import pickle
 import os
 
 #Clase que dada una ruta te dice si esa imagen es una jirafa o no.
 class ClasificadorJirafa(object):
   def __init__(self):
-    self.modelo = keras.models.load_model('modelJirafa.h5')
+    self.modelo = keras.models.load_model('/home/ket/Escritorio/PythonWebAI/Modelos/modeloJirafa.h5')
 
   #Prepara la imagen para poder usar el tensor (es lo mismo que hacemos en preproceso).
   def __prepare_img__(self, route):
@@ -37,8 +36,8 @@ class ClasificadorJirafa(object):
 
 
 j = ClasificadorJirafa()    
-for imagen in os.listdir("pruebas"):
-  ruta = os.path.join("pruebas",imagen)  
+for imagen in os.listdir("/home/ket/Escritorio/PythonWebAI/pruebas"):
+  ruta = os.path.join("/home/ket/Escritorio/PythonWebAI/pruebas",imagen)  
   j.esJirafa(ruta)
 
 

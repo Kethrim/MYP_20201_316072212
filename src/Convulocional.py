@@ -18,7 +18,7 @@ class Convulocional(object):
 
         #Si ya hay un modelo creado solo lo cargamos.
         if nuevoModelo:
-            self.modelo = keras.models.load_model('modelJirafa.h5')
+            self.modelo = keras.models.load_model('/home/ket/Escritorio/PythonWebAI/Modelos/modeloJirafa.h5')
         else: #Creamos el modelo.
             # Declaramos las capas de la red.
             self.modelo = keras.Sequential([
@@ -33,10 +33,10 @@ class Convulocional(object):
 
     #Entrena el modelo y lo guarda en un archivo .h5
     def entrenaYGuarda(self):
-        self.modelo.fit(self.IMAGENES, self.ETIQUETAS, epochs=20) #ejecuta el entrenamiento 30 veces.
-        self.modelo.save('modelJirafa.h5') #guarda el modelo en "model.h5"
+        self.modelo.fit(self.IMAGENES, self.ETIQUETAS, epochs=20) #ejecuta el entrenamiento 20 veces.
+        self.modelo.save('/home/ket/Escritorio/PythonWebAI/Modelos/modeloJirafa.h5') #guarda el modelo en esa ruta.
 
 #Entrenamos la red y la guardamos.
-c = Convulocional(True)
+c = Convulocional()
 c.entrenaYGuarda()
 #%%
