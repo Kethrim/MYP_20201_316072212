@@ -8,7 +8,6 @@ import numpy as np
 import random
 # convierte objetos de Python en una secuencia de bytes
 import pickle
-
 import matplotlib.pyplot as plt 
 
 
@@ -31,6 +30,13 @@ class Preprocess:
 
     #Obtenemos los subdirectorios de una carpeta
     def get_subdirectories(self, Directory):
+        """ recibe la direccion de un directorio y obtiene todas las subcarpetas contenidas
+            en ella.
+    
+            @type  Directory: string 
+            @param Directory: ruta del directorio
+            
+        """
          #iteramos sobre cada elemento de la carpeta
         for sub in os.listdir(Directory):
             path = os.path.join(Directory,sub)
@@ -44,6 +50,10 @@ class Preprocess:
 
      #Obtiene las imagenes de cada uno de los subdirectorios
     def load_training_data(self):
+        """ 
+            lee todas las imagenes contenidas en los subdirectorios y las modifica, 
+            les asigna una etiqueta indicando lo que son ,0 -Hipopotamo, 1-otra cosa 
+        """
         for category in self.subdirectories:
             path = category
             class_num = self.subdirectories.index(category)
@@ -60,6 +70,8 @@ class Preprocess:
 
      #Separamos las imagenes por etiqueta
     def split_and_prepare(self):
+        """ revuelve todas las imagenes leidas y las separa por imagenes y por etiquetas
+        """
         random.shuffle(self.training_data)
         for features,label in self.training_data:
             self.features.append(features)
@@ -77,19 +89,6 @@ class Preprocess:
         pickle.dump(self.labels,pickle_out)
         pickle_out.close()
 
-    
-    def imprime(self,i, titulo):
-        plt.figure()
-        plt.title(self.Data[titulo])
-        plt.imshow(i)
-        plt.colorbar()
-        plt.grid(False)
-        plt.show()
-    
-    def title(self):
-        for lab in self.labels:
-            print(lab)
-   
         
         
         
