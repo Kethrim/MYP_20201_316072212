@@ -1,14 +1,3 @@
-#Practica 4
-#Equipo Salsabrozos ;V
-#Integrantes :
- #Ketrhim
- #Brayan
- #Jose
- #Erick
- #Yo merengues
-
-
-#Libreria para nevegar entre las carpetas
 #%%
 import os
 #Maneja imagenes
@@ -28,11 +17,13 @@ class Preprocess:
     def __init__(self):
         #tamaño por defecto de la imagen
         self.IMG_SIZE = 50
+        #Almacena
+        self.Data=["Hipopotamo","no Hipo"]
         #Arreglo que almacenara todas las imagenes de cada carpeta
         self.training_data = []
         #almacena las imagenes
         self.features = []
-        #Almacena
+        #Almacena los subdirectorios
         self.subdirectories = []
         #almacena las etiquetas
         self.labels = []
@@ -43,7 +34,6 @@ class Preprocess:
          #iteramos sobre cada elemento de la carpeta
         for sub in os.listdir(Directory):
             path = os.path.join(Directory,sub)
-            
             #si es un directorio lo anexamos ala lista para procesarlo despues
             if os.path.isdir(path):
                 self.subdirectories.append(path)
@@ -73,10 +63,7 @@ class Preprocess:
         random.shuffle(self.training_data)
         for features,label in self.training_data:
             self.features.append(features)
-            self.imprime(features,label)
             self.labels.append(label)
-           
-         
         self.features = np.array(self.features).reshape(-1,self.IMG_SIZE, self.IMG_SIZE,1)
         self.features = self.features/255.0
 
@@ -93,7 +80,7 @@ class Preprocess:
     
     def imprime(self,i, titulo):
         plt.figure()
-        plt.title(titulo)
+        plt.title(self.Data[titulo])
         plt.imshow(i)
         plt.colorbar()
         plt.grid(False)
@@ -102,20 +89,16 @@ class Preprocess:
     def title(self):
         for lab in self.labels:
             print(lab)
-            
+   
+        
+        
+        
+        
 p=Preprocess()
 p.get_subdirectories("./Practica4/Data")
 p.load_training_data()
 p.split_and_prepare()
-p.title()
-# p.split_and_prepare()
-# p.write_out()
-#
-# plt.figure()
-# plt.imshow(train_images[0])
-# plt.colorbar()
-# plt.grid(False)
-# plt.show()
+p.write_out()
 
 
 #%%
