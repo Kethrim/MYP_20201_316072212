@@ -37,6 +37,6 @@ class Convulocional(object):
         self.modelo.save('Modelos/modeloJirafa.h5') #guarda el modelo en esa ruta.
 
 #Entrenamos la red y la guardamos.
-c = Convulocional(True)
-c.entrenaYGuarda()
+# c = Convulocional(True)
+# c.entrenaYGuarda()
 #%%

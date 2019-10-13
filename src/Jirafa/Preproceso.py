@@ -51,9 +51,9 @@ class Preproceso(object):
         pickle_out.close()
 
 #Preprocesamos las imágenes. 
-pr = Preproceso()
-pr.load_training()
-pr.split_and_prepare()
-pr.write_out()
+# pr = Preproceso()
+# pr.load_training()
+# pr.split_and_prepare()
+# pr.write_out()
 
 #%%

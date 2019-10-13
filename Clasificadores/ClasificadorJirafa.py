@@ -20,12 +20,11 @@ class ClasificadorJirafa(object):
   def esJirafa(self, route):
     arreglo_de_imagenes = self.__prepare_img__(route)
     predicciones = self.modelo.predict(arreglo_de_imagenes) #Probabilidad de ser jirafa y de no serlo
-    print(predicciones)
     max = np.argmax(predicciones) #0 si es una jirafa, 1 si no lo es.
     cat = ["Soy una jirafa. :) ","No soy una jirafa. :("]
     result = cat[max]
     if (max == 0):
-      self.__muestraResultado__(result, np.array(arreglo_de_imagenes).reshape(50,50))
+      #self.__muestraResultado__(result, np.array(arreglo_de_imagenes).reshape(50,50))
       return True
     else:
       return False
@@ -39,10 +38,10 @@ class ClasificadorJirafa(object):
     plt.show()
 
 #Clasificamos todas las imágenes de prueba.
-j = ClasificadorJirafa()  
-for imagen in os.listdir("pruebas"):
-  ruta = os.path.join("pruebas",imagen)  
-  j.esJirafa(ruta)
+# j = ClasificadorJirafa()  
+# for imagen in os.listdir("pruebas"):
+#   ruta = os.path.join("pruebas",imagen)  
+#   j.esJirafa(ruta)
 
 
 #%%
