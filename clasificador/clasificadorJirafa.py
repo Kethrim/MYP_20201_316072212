@@ -7,9 +7,9 @@ import os
 
 #Clase que dada una ruta te dice si esa imagen es una jirafa o no.
 class clasificadorJirafa(object):
-    """
-    Clasifica imágenes en si son jirafas o no.
-    """
+  """
+  Clasifica imágenes en si son jirafas o no.
+  """
   def __init__(self):
     self.modelo = keras.models.load_model('modelos/modeloJirafa.h5')
 
