@@ -5,6 +5,14 @@ import numpy as np
 import pickle
 
 class GuineaPigClassifier(object):
+  """Clase que identifica si en una imagen hay un cuyo
+
+  Utilizado un modelo de tensorflow se verifica si el modelo es un cuyo
+
+  Excepciones:
+  - Ninguna
+  """
+  
   def __init__(self):
     self.model = keras.models.load_model('modelos/guinea_pig_model.h5')
 
