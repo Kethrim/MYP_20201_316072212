@@ -1,6 +1,6 @@
 ## Compilar
 > Para compilar las pruebas situarse en la carpeta PythonWebAI y ejecutar en la terminal:\
-  $python -m unittest test_ClasificadorJirafa.py
+  $python -m unittest pruebaClasificadorJirafa.py
 ----
 ## Bibliografía
 > Para más información:
