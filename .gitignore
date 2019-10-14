@@ -3,8 +3,6 @@
 ambiente/
 #Archivo que creal vs
 .vscode
-#Carpeta de pruebas
-pruebas/
 # Ignoramos los archivos que contienen las etiquetas y el arreglo de imagenes
 X_Jirafa.pickle
 Y_Jirafa.pickle
