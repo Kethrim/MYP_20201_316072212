@@ -1,21 +1,22 @@
-from __future__ import absolute_import, division, print_function, unicode_literals
-
+#Librerias Importantes
 import tensorflow as tf
 from tensorflow import keras
 
-
-# Helper libraries
+#Librerias Auxiliares
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
 
-class Convolutional(object):
+class Convolutional_Avestruz(object):
+    """Clase para entrenar el modelo de la Red"""
     def __init__(self, newModel = False):
-        self.IMAGENES = pickle.load(open("X.pickle", "rb"))
-        self.ETIQUETAS = pickle.load(open("Y.pickle", "rb"))
-
+        """Metodo contructor que incializa las imagenes vectorizadas"""
+        self.IMAGENES = pickle.load(open("../Imagenes y Etiquetas/X.pickle", "rb"))
+        self.ETIQUETAS = pickle.load(open("../Imagenes y Etiquetas/Y.pickle", "rb"))
+        
+        #Condicion por si existe un modelo anterior, esto para mejorarlo y no crear otro
         if newModel:
-            self.model = keras.models.load_model('Model_Ostrich.h5')
+            self.model = keras.models.load_model('../../modelos/Modelo_Avestruz.h5')
         else:
             # Declaramos las capas de la red
             self.model = keras.Sequential([
@@ -30,7 +31,6 @@ class Convolutional(object):
                     metrics=['accuracy'])
 
     def entrena(self):
+        """Metodo para entrenar la clase y guardar el modelo en un archivo .h5"""
         self.model.fit(self.IMAGENES, self.ETIQUETAS, epochs=100)
-
-    def guarda_modelo(self):
-        self.model.save('Model_Ostrich.h5')
+        self.model.save('../../modelos/Modelo_Avestruz.h5')
