@@ -1,4 +1,8 @@
 .env/
+.ambiente/
 .vscode/
 data/
 __pycache__/
+.ipynb_checkpoints/
+Untitled.ipynb
+
