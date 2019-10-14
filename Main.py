@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #%%
 from matplotlib import pyplot as plt 
 from tensorflow import keras
@@ -28,5 +27,3 @@ class clasificador(Object):
     def queAnimalEs(self, ruta):
         #Aquí podemos importar cada clasificador y usar cada método que tenemos, será más fácil pues ese método regresa un booleano
         return False
-=======
->>>>>>> aa07738393dbbed4c573a917147b4003c9215aa3
