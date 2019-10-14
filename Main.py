@@ -22,4 +22,3 @@ elif jirf.esJirafa(ruta):
   print('Es una jirafa!')  
 else:
   print('No es nada')
-#%%
