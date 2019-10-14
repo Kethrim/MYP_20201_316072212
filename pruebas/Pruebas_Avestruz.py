@@ -4,10 +4,6 @@ from clasificador.Clasificador_Avestruz import Clasificador_Avestruz as ca
 class Pruebas_Avestruz(unittest.TestCase):
     """Pruebas unitarias de la clase Clasificador_Avestruz"""
 
-    # def __init__(self):
-    #     """Constructor, crea el clasificador de Avestruz"""
-
-
     def test_es_Avestruz(self):
         """Metodo que prueba si una imagen es una avestruz"""
         clasifica = ca()
