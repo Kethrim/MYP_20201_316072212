@@ -1,5 +1,6 @@
 import unittest
-from clasificadores.clasificadorJirafa import clasificadorJirafa as jirafa
+from clasificador.clasificadorJirafa import clasificadorJirafa as jirafa
+
 #from Clasificadores.ClasificadorJirafa import ClasificadorJirafa as jirafa
 #Prueba de una serie de imágenes para saber si son una jirafa o no. 
 class test_clasificadorJirafa(unittest.TestCase):
