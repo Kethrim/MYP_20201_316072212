@@ -31,7 +31,7 @@ class Convulocional(object):
             self.modelo = keras.Sequential([
             keras.layers.Flatten(input_shape=(50, 50,1)), #Dimensiones de la imagen declaradas en preproceso.
             keras.layers.Dense(128, activation=tf.nn.relu), #128 nodos
-            keras.layers.Dense(2, activation=tf.nn.softmax) #2 etiquetas
+            keras.layers.Dense(10, activation=tf.nn.softmax) #10 etiquetas
             ])
             # Compilar el modelo con algunos parametros basicos
             self.modelo.compile(optimizer='adam',
