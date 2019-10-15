@@ -1,5 +1,4 @@
 #%%
-
 import tensorflow as tf
 from tensorflow import keras
 import os
@@ -16,11 +15,12 @@ class Convulutional(object):
         """
         self.pictures = pickle.load(open("X.pickle", "rb"))
         self.labels = pickle.load(open("Y.pickle", "rb"))
+        
         # Declaracion de las capas de la modelo
         self.model = keras.Sequential([
             keras.layers.Flatten(input_shape=(50, 50,1)),
             keras.layers.Dense(128, activation=tf.nn.relu), #128 nodos
-            keras.layers.Dense(2, activation=tf.nn.softmax) #2 etiquetas
+            keras.layers.Dense(10, activation=tf.nn.softmax) #2 etiquetas
             ])
 
         # Compila el modelo
@@ -28,12 +28,12 @@ class Convulutional(object):
                     loss='sparse_categorical_crossentropy',
                     metrics=['accuracy'])
     #Entrena el modelo
-    def Training(self):
+    def Training(self,pictures,labels):
         """ Entrenara al modelo con la imagenes preprocesadas contenidas en self.pictures,
              y con sus etiquetas contenidas en sel.labels, el proceso lo realizara un total de 200 veces
-        """
-        self.model.fit(self.pictures,np.array(self.labels), epochs=200)
-        self.model.save('hippo_model.h5')
+                     """
+        self.model.fit(pictures,np.array(labels), epochs=100)
+        self.model.save('hippo_model1.h5')
 
     
 
