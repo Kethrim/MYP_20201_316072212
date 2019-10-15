@@ -31,6 +31,11 @@ class HippoClassifier(object):
             return [] 
         return np.array(new_array).reshape(1,50,50,1) / 255
     
+    def prueba(self,pictures,labels):
+        test_loss, test_acc = self.model.evaluate(pictures, np.array(labels), verbose=2)
+        print('\nTest accuracy:', test_acc)
+        
+        
     #Carga el modelo entrenado
     def load(self,model):
         """recibe la direccion del modelo entrenado y lo trata de abrir
@@ -60,7 +65,7 @@ class HippoClassifier(object):
         if(len(img) != 0):
             predictions = self.model.predict(img)
             max = np.argmax(predictions)
-            if(max==0):
+            if(max==6):
                 return True
             else:
                 return False
