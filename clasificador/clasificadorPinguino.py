@@ -20,6 +20,7 @@ class clasificadorPinguino(object):
   def __prepare_img__(self, ruta):
     """
     Prepara una imagen para que la red pueda identificar si es o no una pingüino.
+    
     @type ruta: string
     @param ruta: imagen que se preparará.
     """
@@ -31,40 +32,21 @@ class clasificadorPinguino(object):
   def esPinguino(self, ruta):
     """"
     Determinada que dada una ruta, la imagen sea una pingüino.
+    
     @type ruta: string
     @param ruta: imagen que desea comprobar.
     @return booleano que inidica si es pingüino o no.
     """
     try:
       arreglo_de_imagenes = self.__prepare_img__(ruta)
-      predicciones = self.modelo.predict(arreglo_de_imagenes) #Probabilidad de ser pingüino y de no serlo
-      max = np.argmax(predicciones) #0 si es una pingüino, 1 si no lo es.
+      predicciones = self.modelo.predict(arreglo_de_imagenes) 
+      max = np.argmax(predicciones) 
     except Exception as e:
       return False
-    cat = ["Soy una pingüino. :) ","No soy una pingüino. :("]
-    result = cat[max]
     if (max == 2):
-      #self.__muestraResultado__(result, np.array(arreglo_de_imagenes).reshape(50,50))
       return True
     else:
       return False
-  
-  #Muestra una imagen con un título.
-  def __muestraResultado__(self, titulo, imagen):
-    """
-    Muestra una imagen en escala de rgb. 
-    @type titulo: str
-    @type imagen: np.array
-    @param titulo: Título que llevará la imagen
-    @param imagen: Imagen que se mostrará.
-    """
-    plt.figure()
-    plt.title(titulo)
-    plt.imshow(imagen)
-    plt.grid(False)
-    plt.show()
-
-#Clasificamos todas las imágenes de prueba.
 
 
 #%%

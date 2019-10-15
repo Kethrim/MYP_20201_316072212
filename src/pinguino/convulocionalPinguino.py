@@ -16,6 +16,7 @@ class Convulocional(object):
     def __init__(self, nuevoModelo = False):
         '''
         Usa un modelo para entrenar.
+        
         @type nuevoModelo: boolean
         @param nuevoModelo: si ya existe el modelo pasar True, de no ser así se crea uno.
         '''
@@ -25,7 +26,7 @@ class Convulocional(object):
 
         #Si ya hay un modelo creado solo lo cargamos.
         if nuevoModelo:
-            self.modelo = keras.models.load_model('modelos/modeloPinguino.h5')
+            self.modelo = keras.models.load_model('modelos/pingu_model2.h5')
         else: #Creamos el modelo.
             # Declaramos las capas de la red.
             self.modelo = keras.Sequential([
@@ -41,7 +42,7 @@ class Convulocional(object):
     #Entrena el modelo y lo guarda en un archivo .h5
     def entrenaYGuarda(self):
         '''
-        Entrena a la red 20 veces y lo guarda en Modelos/modeloPinguino.h5.
+        Entrena a la red 20 veces y lo guarda en modelos/pingu_model2.h5.
         '''
         self.ETIQUETAS = np.array(self.ETIQUETAS)
         self.modelo.fit(self.IMAGENES, self.ETIQUETAS, epochs=20) #ejecuta el entrenamiento 20 veces.
