@@ -8,7 +8,7 @@ import os
 #Clase que dada una ruta te dice si esa imagen es una pingüino o no.
 class clasificadorPinguino(object):
   """
-  Clasifica imágenes en si son jirafas o no.
+  Clasifica imágenes en si son pinguinos o no.
   """
   def __init__(self):
     try:
@@ -28,7 +28,7 @@ class clasificadorPinguino(object):
     return np.array(nuevo_arreglo).reshape(1,50,50,1) / 255
 
   # Determina si dada una ruta de una imagen, lo que contiene es una pingüino o no.
-  def esJirafa(self, ruta):
+  def esPinguino(self, ruta):
     """"
     Determinada que dada una ruta, la imagen sea una pingüino.
     @type ruta: string
