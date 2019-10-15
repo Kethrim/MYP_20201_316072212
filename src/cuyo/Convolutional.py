@@ -12,7 +12,7 @@ class Convolutional(object):
         self.ETIQUETAS = np.array(pickle.load(open("Y.pickle", "rb")))
 
         if newModel:
-            self.model = keras.models.load_model('modelos/guinea_pig_model.h5')
+            self.model = keras.models.load_model('modelos/modeloCuyo.h5')
         else:
             # Declaramos las capas de la red
             self.model = keras.Sequential([
@@ -27,10 +27,10 @@ class Convolutional(object):
                     metrics=['accuracy'])
 
     def entrena(self):
-        self.model.fit(self.IMAGENES, self.ETIQUETAS, epochs=100)
+        self.model.fit(self.IMAGENES, self.ETIQUETAS, epochs=50)
 
     def guarda_modelo(self):
-        self.model.save('modelos/guinea_pig_model.h5')
+        self.model.save('modelos/modeloCuyo.h5')
 
 c = Convolutional(True)
 c.entrena()

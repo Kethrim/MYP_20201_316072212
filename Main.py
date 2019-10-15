@@ -9,16 +9,18 @@ jirf = clas_jirf()
 
 ruta = sys.argv[1]
 
-if hipo.is_hippo(ruta):
-  # falla con revision/cuyo_prueba.jpg, dice que es un hipo
-  print('Es un hipopotamo!')
-elif False:  
-  print('Pinguino')
-elif False:
-  print('Ave..')
-elif cuyo.es_cuyo(ruta):
-  print('Es un cuyo!')
-elif jirf.esJirafa(ruta):
-  print('Es una jirafa!')  
-else:
-  print('No es nada')
+# if hipo.is_hippo(ruta):
+#   # falla con revision/cuyo_prueba.jpg, dice que es un hipo
+#   print('Es un hipopotamo!')
+# elif False:  
+#   print('Pinguino')
+# elif False:
+#   print('Ave..')
+# elif cuyo.es_cuyo(ruta):
+#   print('Es un cuyo!')
+# elif jirf.esJirafa(ruta):
+#   print('Es una jirafa!')  
+# else:
+#   print('No es nada')
+
+print(cuyo.es_cuyo(ruta))
