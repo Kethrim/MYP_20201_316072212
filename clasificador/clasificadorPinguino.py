@@ -12,7 +12,7 @@ class clasificadorPinguino(object):
   """
   def __init__(self):
     try:
-      self.modelo = keras.models.load_model('modelos/modeloPinguino.h5')
+      self.modelo = keras.models.load_model('modelos/pingu_model2.h5')
     except Exception as e:
       print("ERROR: No existe el modelo.")
 
@@ -43,7 +43,7 @@ class clasificadorPinguino(object):
       return False
     cat = ["Soy una pingüino. :) ","No soy una pingüino. :("]
     result = cat[max]
-    if (max == 0):
+    if (max == 2):
       #self.__muestraResultado__(result, np.array(arreglo_de_imagenes).reshape(50,50))
       return True
     else:
