@@ -25,5 +25,9 @@ class test_clasificadorJirafa(unittest.TestCase):
         self.assertFalse(id.esJirafa("revision/hipo_prueba.jpg"))
         self.assertFalse(id.esJirafa("revision/pingu_prueba.jpg"))
 
+    def test_rutaInvalida(self):
+        id = jirafa()
+        self.assertFalse(id.esJirafa("esta es una ruta inválida."))
+
 if __name__ == "__main__":
     uniitest.main()
