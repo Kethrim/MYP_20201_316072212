@@ -16,6 +16,7 @@ class Convulocional(object):
     def __init__(self, nuevoModelo = False):
         '''
         Usa un modelo para entrenar.
+        
         @type nuevoModelo: boolean
         @param nuevoModelo: si ya existe el modelo pasar True, de no ser así se crea uno.
         '''
