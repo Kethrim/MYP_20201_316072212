@@ -43,7 +43,7 @@ class clasificador():
     else:
       return 'No es ninigún animal.'
 
-
+print(cuyo.es_cuyo(ruta))
 ruta = sys.argv[1]
 c = clasificador()
 print("\t", c.queAnimalEs(ruta))
