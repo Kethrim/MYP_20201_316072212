@@ -43,6 +43,7 @@ class Convulocional(object):
         '''
         Entrena a la red 20 veces y lo guarda en Modelos/modeloPinguino.h5.
         '''
+        self.ETIQUETAS = np.array(self.ETIQUETAS)
         self.modelo.fit(self.IMAGENES, self.ETIQUETAS, epochs=20) #ejecuta el entrenamiento 20 veces.
         self.modelo.save('modelos/modeloPinguino.h5') #guarda el modelo en esa ruta.
 
