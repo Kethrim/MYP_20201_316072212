@@ -3,6 +3,7 @@ from clasificador.hippo_classifier import HippoClassifier as clas_hipo
 from clasificador.clasificadorCuyo import ClasificadorCuyo as clas_cuyo
 from clasificador.clasificadorJirafa import clasificadorJirafa as clas_jirf
 from clasificador.Clasificador_Avestruz import Clasificador_Avestruz as clas_ave
+from clasificador.clasificadorPinguino import clasificadorPinguino as class_pingu
 class clasificador():
   """
   Clase que clasifica una imagen en:
@@ -23,12 +24,13 @@ class clasificador():
       self.cuyo = clas_cuyo()
       self.jirf = clas_jirf()  
       self.ave = clas_ave()  
+      self.pingu = class_pingu
     except Exception as e:
       print("No se pueden cargar los modelos.")
 
 
   def queAnimalEs(self,ruta):
-    if False:  
+    if self.pingu.esPinguino(ruta):  
       return 'Es un pinguino!'
     elif self.jirf.esJirafa(ruta):
       return 'Es una jirafa!'
