@@ -19,23 +19,23 @@ class clasificador():
   Se cargan los modelos previamente creados de cada animal.
   """
   try:
-    hipo = clas_hipo('modelos/hippo_model.h5')
-    cuyo = clas_cuyo()
-    jirf = clas_jirf()    
+    self.hipo = clas_hipo('modelos/hippo_model.h5')
+    self.cuyo = clas_cuyo()
+    self.jirf = clas_jirf()    
   except Exception as e:
     print("No se pueden cargar los modelos.")
 
 
   def queAnimalEs(self,ruta):
-    if hipo.is_hippo(ruta):
+    if self.hipo.is_hippo(ruta):
       return 'Es un hipopotamo!'
     elif False:  
       return 'Es un pinguino!'
     elif False:
       return 'Es un avestruz!'
-    elif cuyo.es_cuyo(ruta):
+    elif self.cuyo.es_cuyo(ruta):
       return 'Es un cuyo!'
-    elif jirf.esJirafa(ruta):
+    elif self.jirf.esJirafa(ruta):
       return 'Es una jirafa!'
     else:
       return 'No es nada'
